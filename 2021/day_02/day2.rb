@@ -16,14 +16,12 @@ RSpec.describe 'Day 2' do
 end
 
 def position(input)
-  map = input.each_with_object({}) do |el, h|
-    instruction = el.split(' ')
-    direction = instruction.first
-    magnitude = instruction[1].to_i
+  map = input.each_with_object({}) do |instruction, h|
+    direction, magnitude = instruction.split(' ')
     if h[direction]
-      h[direction] += magnitude
+      h[direction] += magnitude.to_i
     else
-      h[direction] = magnitude
+      h[direction] = magnitude.to_i
     end
   end
 
